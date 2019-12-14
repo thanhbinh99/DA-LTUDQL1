@@ -39,6 +39,11 @@
             this.bttnGbDiemThi = new System.Windows.Forms.GroupBox();
             this.bttnGbChonCH = new System.Windows.Forms.GroupBox();
             this.tpTTCN = new System.Windows.Forms.TabPage();
+            this.ttcnGbttcn = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ttcn = new System.Windows.Forms.Label();
+            this.ttcnTxtTen = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.tpOLTT = new System.Windows.Forms.TabPage();
             this.tpDGCH = new System.Windows.Forms.TabPage();
             this.dgchbtnExport = new System.Windows.Forms.Button();
@@ -62,21 +67,16 @@
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.ttcnGbttcn = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.ttcnTxtTen = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tpLBTN.SuspendLayout();
             this.tpTTCN.SuspendLayout();
+            this.ttcnGbttcn.SuspendLayout();
             this.tpDGCH.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSDA)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.ttcnGbttcn.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -114,6 +114,7 @@
             // lblThoiGian
             // 
             this.lblThoiGian.AutoSize = true;
+            this.lblThoiGian.Enabled = false;
             this.lblThoiGian.Font = new System.Drawing.Font("Times New Roman", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lblThoiGian.Location = new System.Drawing.Point(919, 546);
             this.lblThoiGian.Name = "lblThoiGian";
@@ -124,6 +125,7 @@
             // 
             // bttnBtnNopBai
             // 
+            this.bttnBtnNopBai.Enabled = false;
             this.bttnBtnNopBai.Font = new System.Drawing.Font("Times New Roman", 25.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.bttnBtnNopBai.Location = new System.Drawing.Point(436, 546);
             this.bttnBtnNopBai.Name = "bttnBtnNopBai";
@@ -135,6 +137,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Enabled = false;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label2.ForeColor = System.Drawing.Color.Chocolate;
             this.label2.Location = new System.Drawing.Point(329, 7);
@@ -146,6 +149,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Enabled = false;
             this.groupBox4.Location = new System.Drawing.Point(164, 101);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(696, 431);
@@ -154,6 +158,7 @@
             // 
             // bttnGbTtHS
             // 
+            this.bttnGbTtHS.Enabled = false;
             this.bttnGbTtHS.Location = new System.Drawing.Point(866, 7);
             this.bttnGbTtHS.Name = "bttnGbTtHS";
             this.bttnGbTtHS.Size = new System.Drawing.Size(300, 250);
@@ -163,6 +168,7 @@
             // 
             // bttnGbDiemThi
             // 
+            this.bttnGbDiemThi.Enabled = false;
             this.bttnGbDiemThi.Location = new System.Drawing.Point(866, 275);
             this.bttnGbDiemThi.Name = "bttnGbDiemThi";
             this.bttnGbDiemThi.Size = new System.Drawing.Size(300, 257);
@@ -172,6 +178,7 @@
             // 
             // bttnGbChonCH
             // 
+            this.bttnGbChonCH.Enabled = false;
             this.bttnGbChonCH.Location = new System.Drawing.Point(8, 7);
             this.bttnGbChonCH.Name = "bttnGbChonCH";
             this.bttnGbChonCH.Size = new System.Drawing.Size(150, 525);
@@ -190,6 +197,54 @@
             this.tpTTCN.TabIndex = 1;
             this.tpTTCN.Text = "Thông tin cá nhân";
             this.tpTTCN.UseVisualStyleBackColor = true;
+            // 
+            // ttcnGbttcn
+            // 
+            this.ttcnGbttcn.Controls.Add(this.textBox1);
+            this.ttcnGbttcn.Controls.Add(this.ttcn);
+            this.ttcnGbttcn.Controls.Add(this.ttcnTxtTen);
+            this.ttcnGbttcn.Controls.Add(this.label4);
+            this.ttcnGbttcn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.ttcnGbttcn.Location = new System.Drawing.Point(7, 7);
+            this.ttcnGbttcn.Name = "ttcnGbttcn";
+            this.ttcnGbttcn.Size = new System.Drawing.Size(618, 325);
+            this.ttcnGbttcn.TabIndex = 0;
+            this.ttcnGbttcn.TabStop = false;
+            this.ttcnGbttcn.Text = "Thông Tin Cá Nhân";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(109, 74);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(400, 30);
+            this.textBox1.TabIndex = 3;
+            // 
+            // ttcn
+            // 
+            this.ttcn.AutoSize = true;
+            this.ttcn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.ttcn.Location = new System.Drawing.Point(6, 77);
+            this.ttcn.Name = "ttcn";
+            this.ttcn.Size = new System.Drawing.Size(96, 25);
+            this.ttcn.TabIndex = 2;
+            this.ttcn.Text = "Họ Tên: ";
+            // 
+            // ttcnTxtTen
+            // 
+            this.ttcnTxtTen.Location = new System.Drawing.Point(109, 31);
+            this.ttcnTxtTen.Name = "ttcnTxtTen";
+            this.ttcnTxtTen.Size = new System.Drawing.Size(400, 30);
+            this.ttcnTxtTen.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label4.Location = new System.Drawing.Point(6, 34);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(96, 25);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Họ Tên: ";
             // 
             // tpOLTT
             // 
@@ -424,54 +479,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // ttcnGbttcn
-            // 
-            this.ttcnGbttcn.Controls.Add(this.textBox1);
-            this.ttcnGbttcn.Controls.Add(this.label5);
-            this.ttcnGbttcn.Controls.Add(this.ttcnTxtTen);
-            this.ttcnGbttcn.Controls.Add(this.label4);
-            this.ttcnGbttcn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.ttcnGbttcn.Location = new System.Drawing.Point(7, 7);
-            this.ttcnGbttcn.Name = "ttcnGbttcn";
-            this.ttcnGbttcn.Size = new System.Drawing.Size(618, 325);
-            this.ttcnGbttcn.TabIndex = 0;
-            this.ttcnGbttcn.TabStop = false;
-            this.ttcnGbttcn.Text = "Thông Tin Cá Nhân";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(6, 34);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 25);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Họ Tên: ";
-            // 
-            // ttcnTxtTen
-            // 
-            this.ttcnTxtTen.Location = new System.Drawing.Point(109, 31);
-            this.ttcnTxtTen.Name = "ttcnTxtTen";
-            this.ttcnTxtTen.Size = new System.Drawing.Size(400, 30);
-            this.ttcnTxtTen.TabIndex = 1;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(109, 74);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(400, 30);
-            this.textBox1.TabIndex = 3;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label5.Location = new System.Drawing.Point(6, 77);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 25);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Họ Tên: ";
-            // 
             // frmHocSinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -485,6 +492,8 @@
             this.tpLBTN.ResumeLayout(false);
             this.tpLBTN.PerformLayout();
             this.tpTTCN.ResumeLayout(false);
+            this.ttcnGbttcn.ResumeLayout(false);
+            this.ttcnGbttcn.PerformLayout();
             this.tpDGCH.ResumeLayout(false);
             this.tpDGCH.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -494,8 +503,6 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.ttcnGbttcn.ResumeLayout(false);
-            this.ttcnGbttcn.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -537,7 +544,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.GroupBox ttcnGbttcn;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label ttcn;
         private System.Windows.Forms.TextBox ttcnTxtTen;
         private System.Windows.Forms.Label label4;
     }

@@ -29,56 +29,47 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.txtTenDangNhap = new System.Windows.Forms.TextBox();
+            this.txtmadangnhap = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.txtMatKhau = new System.Windows.Forms.TextBox();
             this.errorProviderMain = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.btndangki = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderMain)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtTenDangNhap
+            // txtmadangnhap
             // 
-            this.txtTenDangNhap.Location = new System.Drawing.Point(33, 27);
-            this.txtTenDangNhap.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTenDangNhap.Name = "txtTenDangNhap";
-            this.txtTenDangNhap.Size = new System.Drawing.Size(219, 22);
-            this.txtTenDangNhap.TabIndex = 1;
-            this.txtTenDangNhap.Text = "Điền tên đăng nhập";
+            this.txtmadangnhap.Location = new System.Drawing.Point(33, 31);
+            this.txtmadangnhap.Margin = new System.Windows.Forms.Padding(4);
+            this.txtmadangnhap.Name = "txtmadangnhap";
+            this.txtmadangnhap.Size = new System.Drawing.Size(219, 30);
+            this.txtmadangnhap.TabIndex = 1;
+            this.txtmadangnhap.Text = "Điền mã đăng nhập";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.txtMatKhau);
-            this.groupBox1.Controls.Add(this.txtTenDangNhap);
-            this.groupBox1.Location = new System.Drawing.Point(283, 140);
+            this.groupBox1.Controls.Add(this.txtmadangnhap);
+            this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.groupBox1.Location = new System.Drawing.Point(329, 127);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(288, 148);
+            this.groupBox1.Size = new System.Drawing.Size(288, 154);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin đăng nhập";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(153, 103);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 28);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Đăng nhập";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // txtMatKhau
             // 
-            this.txtMatKhau.Location = new System.Drawing.Point(33, 64);
+            this.txtMatKhau.Location = new System.Drawing.Point(33, 85);
             this.txtMatKhau.Margin = new System.Windows.Forms.Padding(4);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.PasswordChar = '$';
-            this.txtMatKhau.Size = new System.Drawing.Size(219, 22);
-            this.txtMatKhau.TabIndex = 1;
+            this.txtMatKhau.Size = new System.Drawing.Size(219, 30);
+            this.txtMatKhau.TabIndex = 2;
             this.txtMatKhau.Text = "123456789";
             this.txtMatKhau.UseSystemPasswordChar = true;
             // 
@@ -86,13 +77,41 @@
             // 
             this.errorProviderMain.ContainerControl = this;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label1.ForeColor = System.Drawing.Color.Maroon;
+            this.errorProviderMain.SetIconAlignment(this.label1, System.Windows.Forms.ErrorIconAlignment.TopLeft);
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label1.Location = new System.Drawing.Point(80, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(768, 44);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Chào Mừng Bạn Đến với Bài Thi Trắc Nghiệm";
+            // 
+            // btndangki
+            // 
+            this.btndangki.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btndangki.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btndangki.Location = new System.Drawing.Point(362, 300);
+            this.btndangki.Name = "btndangki";
+            this.btndangki.Size = new System.Drawing.Size(219, 50);
+            this.btndangki.TabIndex = 5;
+            this.btndangki.Text = "Đăng Ký Tài Khoản ";
+            this.btndangki.UseVisualStyleBackColor = true;
+            this.btndangki.Click += new System.EventHandler(this.btndangki_Click);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ThiTracNghiem.Properties.Resources.hinh_nen_form_login;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(805, 482);
+            this.ClientSize = new System.Drawing.Size(932, 516);
+            this.Controls.Add(this.btndangki);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmLogin";
@@ -101,14 +120,16 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderMain)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txtTenDangNhap;
+        private System.Windows.Forms.TextBox txtmadangnhap;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtMatKhau;
         private System.Windows.Forms.ErrorProvider errorProviderMain;
+        private System.Windows.Forms.Button btndangki;
+        private System.Windows.Forms.Label label1;
     }
 }

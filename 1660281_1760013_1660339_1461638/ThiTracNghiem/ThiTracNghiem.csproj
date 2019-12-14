@@ -75,6 +75,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccessData.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,11 +94,17 @@
     <Compile Include="frmGiaoVien.Designer.cs">
       <DependentUpon>frmGiaoVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmHocSinh.cs">
+    <Compile Include="fromDangKy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmHocSinh.Designer.cs">
-      <DependentUpon>frmHocSinh.cs</DependentUpon>
+    <Compile Include="fromDangKy.Designer.cs">
+      <DependentUpon>fromDangKy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fromHocSinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fromHocSinh.Designer.cs">
+      <DependentUpon>fromHocSinh.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -105,6 +112,7 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="KiemTraDangNhap.cs" />
     <Compile Include="QLTTN.cs">
       <DependentUpon>QLTTN.dbml</DependentUpon>
     </Compile>
@@ -131,8 +139,11 @@
     <EmbeddedResource Include="frmGiaoVien.resx">
       <DependentUpon>frmGiaoVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmHocSinh.resx">
-      <DependentUpon>frmHocSinh.cs</DependentUpon>
+    <EmbeddedResource Include="fromDangKy.resx">
+      <DependentUpon>fromDangKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fromHocSinh.resx">
+      <DependentUpon>fromHocSinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

@@ -57,3 +57,4 @@ B:\DA-LTUDQL1\1660281_1760013_1660339_1461638\ThiTracNghiem\obj\Debug\ThiTracNgh
 B:\DA-LTUDQL1\1660281_1760013_1660339_1461638\ThiTracNghiem\obj\Debug\ThiTracNghiem.QuanLyCauHoi.resources
 B:\DA-LTUDQL1\1660281_1760013_1660339_1461638\ThiTracNghiem\obj\Debug\ThiTracNghiem.Properties.Resources.resources
 B:\DA-LTUDQL1\1660281_1760013_1660339_1461638\ThiTracNghiem\obj\Debug\ThiTracNghiem.csproj.GenerateResource.Cache
+B:\DA-LTUDQL1\1660281_1760013_1660339_1461638\ThiTracNghiem\obj\Debug\ThiTracNghiem.fromDangKy.resources
