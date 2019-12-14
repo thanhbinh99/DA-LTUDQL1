@@ -30,14 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.txtmadangnhap = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtMatKhau = new System.Windows.Forms.TextBox();
-            this.errorProviderMain = new System.Windows.Forms.ErrorProvider(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.btndangki = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            this.txtMatKhau = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderMain)).BeginInit();
-            this.SuspendLayout();
             // 
             // txtmadangnhap
             // 
@@ -70,12 +67,31 @@
             this.txtMatKhau.PasswordChar = '$';
             this.txtMatKhau.Size = new System.Drawing.Size(219, 30);
             this.txtMatKhau.TabIndex = 2;
-            this.txtMatKhau.Text = "123456789";
-            this.txtMatKhau.UseSystemPasswordChar = true;
-            // 
             // errorProviderMain
             // 
             this.errorProviderMain.ContainerControl = this;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.txtMatKhau);
+            this.groupBox1.Location = new System.Drawing.Point(207, 136);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(190, 120);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            // 
+            // txtMatKhau
+            // 
+            this.txtMatKhau.Location = new System.Drawing.Point(13, 65);
+            this.txtMatKhau.Name = "txtMatKhau";
+            this.txtMatKhau.PasswordChar = '$';
+            this.txtMatKhau.Size = new System.Drawing.Size(165, 20);
+            this.txtMatKhau.TabIndex = 5;
+            this.txtMatKhau.Text = "123456789";
+            this.txtMatKhau.UseSystemPasswordChar = true;
+        
+            
             // 
             // label1
             // 
@@ -101,24 +117,24 @@
             this.btndangki.TabIndex = 5;
             this.btndangki.Text = "Đăng Ký Tài Khoản ";
             this.btndangki.UseVisualStyleBackColor = true;
-            this.btndangki.Click += new System.EventHandler(this.btndangki_Click);
             // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ThiTracNghiem.Properties.Resources.hinh_nen_form_login;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(932, 516);
             this.Controls.Add(this.btndangki);
             this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(604, 392);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmLogin";
-            this.Text = "Đăng nhập/Đăng ký tài khoản";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Đăng nhập";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderMain)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderMain)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

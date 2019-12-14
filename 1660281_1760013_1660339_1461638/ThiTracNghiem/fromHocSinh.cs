@@ -17,6 +17,8 @@ namespace ThiTracNghiem
 {
     public partial class frmHocSinh : Form
     {
+        frmLogin frmlogin = null;
+        HocSinh hs = null;
         static BindingSource bsCauHoi = new BindingSource();
         static BindingSource bsDapAn = new BindingSource();
         void set()
@@ -67,6 +69,7 @@ namespace ThiTracNghiem
                 {
                     string noiDungCapDo = e.Value.ToString();
                     e.Value = (dgchCbCapDo.DataSource as List<CapDo>).Where(cd => cd.TenCD == noiDungCapDo).FirstOrDefault().maCD;
+                    e.Value = (dgchCbCapDo.DataSource as List<CapDo>).Where(cd => cd.TenCD== noiDungCapDo).FirstOrDefault().maCD;
                 }
             };
             dgchCkbDungSai.DataBindings.Add("Checked", bsDapAn, "DungSai", true, DataSourceUpdateMode.Never, false);
@@ -128,17 +131,17 @@ namespace ThiTracNghiem
                 }
             }
         }
-        public frmHocSinh()
+        public frmHocSinh(frmLogin frmlogin, HocSinh hs)
         {
+            this.frmlogin = frmlogin;
+            this.hs = hs;
             InitializeComponent();
 
             // thanhbinh
             timer1.Start();
             timer1.Interval = 1000;
             int counter = 3600;
-
             TimeSpan t = TimeSpan.FromSeconds(counter);
-          
             timer1.Tick += (s, e) =>
             {
 
@@ -158,6 +161,10 @@ namespace ThiTracNghiem
             };
 
             // koichen
+            this.FormClosing += (s, e) =>
+              {
+                  frmlogin.Show();
+              };
             loadCBCauHoi();
             loadDGVDapAn();
             set();
@@ -459,6 +466,10 @@ namespace ThiTracNghiem
                     }
                 }
             };
+        }
+
+        public frmHocSinh()
+        {
         }
 
         private void lblThoiGian_Click(object sender, EventArgs e)

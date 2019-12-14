@@ -15,6 +15,8 @@ namespace ThiTracNghiem
     {
         static NguoiDung nguoidung;
         static Form frm = null;
+        static NguoiDung nguoiDung = null;
+        
         public frmLogin()
         {
             InitializeComponent();
@@ -58,6 +60,10 @@ namespace ThiTracNghiem
             this.Focus();
         }
 
+        private void txtTenDangNhap_Validating(object sender, CancelEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
 
         private void TextBox_GotFocus(object sender, EventArgs e)
         {
@@ -69,30 +75,20 @@ namespace ThiTracNghiem
         {
             TextBox txt = sender as TextBox;
             txt.SelectedText = "";
+
+            //this.Paint += (s, e) =>
+            // {
+            //     Image img = ThiTracNghiem.Properties.Resources.hinh_nen_form_login;
+            //     e.Graphics.DrawImage(img, groupBox1.Bounds);
+            // };
         }
 
-        private void txtTenDangNhap_Validating(object sender, CancelEventArgs e)
-        {
-            var ctrl = sender as Control;
-            var strInput = ctrl.Text;
-            if (strInput.Length == 0)
-            {
-                errorProviderMain.SetError(ctrl, "not input");
-                ctrl.Focus();
-            }
-            else
-            {
-                errorProviderMain.SetError(ctrl, "");
-            }
-            
-
         }
-
-        private void btndangki_Click(object sender, EventArgs e)
-        {
-            fromDangKy dk = new fromDangKy(this);
-            dk.ShowDialog();
-        }
+        
+        //private void btndangki_Click(object sender, EventArgs e)
+        //{
+        //    fromDangKy dk = new fromDangKy(this);
+        //    dk.ShowDialog();
+        //}
     }
 
-}
