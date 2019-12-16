@@ -17,15 +17,21 @@ create table KyThi(
 	NgayThi datetime,
 	LoaiKT varchar(10),
 	maGV varchar(10), -- thông tin giáo viên tạo kỳ thi
-	DaThi bit
 )
 
 create table Thi(
+	maT int primary key identity not null,
 	maHS varchar(10),
 	maDT int,
 	maKT int,
 	Diem decimal
-	primary key (maHS, maDT, maKT)
+)
+
+create table CT_Thi(
+	maT int,	-- bảng CT_T (Chi tiết bài làm của học sinh) có khóa ngoại maT tham chiếu tới bảng Thi(maT)
+	maCH int,	-- câu hỏi học sinh làm bài
+	maDA int,	-- đáp án học sinh chọn, trong bảng đáp án có thuộc tính DungSai, dựa vào đó để tính điểm
+	primary key (maT, maCH, maDA)
 )
 
 create table DeThi(
@@ -49,7 +55,8 @@ create table CauHoi(
 	NoiDung nvarchar(1000),
 	maCD int,
 	maMH varchar(10),
-	maKhoi varchar(3)		
+	maKhoi varchar(3),
+	GoiY nvarchar(1000) default N'Không có gợi ý'
 )
 
 create table CapDo(
@@ -84,11 +91,7 @@ create table LopHoc(
 
 create table NguoiDung(
 	maND varchar(10) primary key,
-<<<<<<< HEAD:database/script create db.sql
 	MatKhau varchar(100) default '123',
-=======
-	MatKhau varchar(100),
->>>>>>> ce4baa9155c56c8ce66542e1938a0c19ba76290d:database/script-create-db.sql
 	maLND varchar(10)
 )
 
@@ -164,6 +167,15 @@ add
 	foreign key (maHS)
 	references HocSinh(maHS)
 
+alter table CT_Thi
+add
+	constraint fk_ctt_t
+	foreign key (maT)
+	references Thi(maT),
+	constraint fk_ctt_da
+	foreign key (maCH, maDA)
+	references DapAn(maCH, maDA)
+
 alter table DeThi
 add
 	constraint fk_dt_mh
@@ -214,17 +226,13 @@ add
 	constraint fk_hs_lh
 	foreign key (maKhoi, maLop)
 	references LopHoc(maKhoi, maLop)
-go
 
 alter table NguoiDung
 add 
 	constraint fk_nd_lnd
 	foreign key (maLND)
 	references LoaiNguoiDung(maLND)
-<<<<<<< HEAD:database/script create db.sql
 go
-=======
->>>>>>> ce4baa9155c56c8ce66542e1938a0c19ba76290d:database/script-create-db.sql
 
 /* ================================ TẠO TRIGGER =============================*/
 create function demSiSoHS (@maKhoi varchar(3), @maLop varchar(3))
@@ -250,6 +258,32 @@ as begin
 	set SiSo = dbo.demSiSoHS(d.maKhoi, d.maLop)
 	from deleted d, LopHoc lh
 	where d.maKhoi = lh.maKhoi and d.maLop = lh.maLop
+end
+go
+
+/* ================================ TẠO Funtion =============================*/
+create function TinhSoCauDung(@maT int)
+returns int
+as begin
+	return	(select count(ctt.maCH)
+			from Thi t, CT_Thi ctt, DapAn da
+			where	t.maT = ctt.maT and
+					da.maCH = ctt.maCH and
+					da.maDA = ctt.maDA and
+					da.DungSai = 1)
+end
+go
+
+create function TinhDiem(@maT int, @thangDiem int) -- thang điểm 10, 100, hay là 4 như điểm tốt nghiệp đại học
+returns decimal
+as begin
+	declare @soCauDung int, @tongSoCau int
+	set @soCauDung = dbo.TinhSoCauDung(@maT)
+	set @tongSoCau =	(select COUNT(maT)
+						from CT_Thi
+						where maT = @maT)
+	-- quy ra điểm
+	return (cast(@soCauDung as decimal)/ cast(@tongSoCau as decimal)) * cast(@thangDiem as decimal)
 end
 go
 
@@ -293,11 +327,7 @@ insert into NguoiDung(MaND, MatKhau, maLND) values (1660281, '123', 'HS')
 insert into NguoiDung(MaND, MatKhau, maLND) values (1461638, '123', 'HS')
 insert into NguoiDung(maND, MatKhau, maLND) values (1760013, '123', 'GV')
 insert into NguoiDung(maND, MatKhau, maLND) values (1721001902, '123', 'GV')
-<<<<<<< HEAD:database/script create db.sql
 insert into NguoiDung(maND, MatKhau, maLND) values ('ad', '123', 'AD')
-=======
-insert into NguoiDung(maND, MatKhau, maLND) values (1, '123', 'AD')
->>>>>>> ce4baa9155c56c8ce66542e1938a0c19ba76290d:database/script-create-db.sql
 go
 
 insert into HocSinh(maHS, HoTen, NgaySinh, maKhoi, maLop) values(1660339, N'Nguyễn Thị Lý'  , '12/29/1998', 'K10', 'A1')
