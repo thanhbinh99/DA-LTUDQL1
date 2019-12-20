@@ -11,27 +11,40 @@ use QLTTN
 go
 
 /* ============================= TẠO BẢNG VÀ KHÓA CHÍNH =============================*/
-create table KyThi(
+
+create table KyThi(						-- một kỳ thi sẽ có nhiều đề thi, phân biệt bằng mã
 	maKT int primary key identity not null,
 	TenKT nvarchar(100),
-	NgayThi datetime,
 	LoaiKT varchar(10),
-	maGV varchar(10), -- thông tin giáo viên tạo kỳ thi
 )
 
-create table Thi(
-	maT int primary key identity not null,
-	maHS varchar(10),
-	maDT int,
+create table CT_KyThi(					-- danh sách các đề thi trong kỳ thi đó, khi xếp lịch thi thì chỉ xuất ra môn học mà thôi
 	maKT int,
-	Diem decimal
+	maDT int,
+	NgayGioThi datetime not null,
+	primary key (maKT, maDT)
 )
 
-create table CT_Thi(
-	maT int,	-- bảng CT_T (Chi tiết bài làm của học sinh) có khóa ngoại maT tham chiếu tới bảng Thi(maT)
-	maCH int,	-- câu hỏi học sinh làm bài
-	maDA int,	-- đáp án học sinh chọn, trong bảng đáp án có thuộc tính DungSai, dựa vào đó để tính điểm
-	primary key (maT, maCH, maDA)
+create table HS_KT(						-- học sinh tham gia nhiều kỳ thi, kỳ thi có nhiều học sinh					
+	maKT int,
+	maHS varchar(10),
+	primary key (maHS, maKT)
+)
+
+create table BaiLam(					-- bài làm được thực hiện trên chi tiết kỳ thi
+	maHS varchar(10),					-- phải có tên trong lịch thi mới làm được bài
+	maKT int,
+	maDT int							-- học sinh làm bài trên đề thi trong kỳ thi
+	primary key (maHS, maKT, maDT)
+)
+
+create table CT_BaiLam(					-- tham chiếu tới bài làm
+	maHS varchar(10),
+	maKT int,					
+	maDT int,							
+	maCH int,							-- câu hỏi có trong đề thi mà học sinh làm
+	maDA int							-- đáp án học sinh chọn
+	primary key (maHS, maKT, maDT, maCH, maDA)
 )
 
 create table DeThi(
@@ -149,32 +162,44 @@ add
 	foreign key (maKhoi, maLop)
 	references LopHoc(maKhoi, maLop)
 
-alter table KyThi
-add 
-	constraint fk_kt_gv
-	foreign key (maGV)
-	references GiaoVien(maGV)
-
-alter table Thi
+alter table CT_KyThi
 add
-	constraint fk_t_kt
+	constraint fk_ctkt_kt
 	foreign key (maKT)
 	references KyThi(maKT),
-	constraint fk_t_dt
+	constraint fk_ctkt_dt
 	foreign key (maDT)
-	references DeThi(maDT),
-	constraint fk_t_hs
-	foreign key (maHS)
-	references HocSinh(maHS)
+	references DeThi(maDT)
 
-alter table CT_Thi
-add
-	constraint fk_ctt_t
-	foreign key (maT)
-	references Thi(maT),
-	constraint fk_ctt_da
+alter table BaiLam
+add 
+	constraint fk_bl_hs
+	foreign key (maHS)
+	references HocSinh(maHS),
+	constraint fk_bl_ctkt
+	foreign key (maKT, maDT)
+	references CT_KyThi(maKT, maDT)
+
+alter table CT_BaiLam
+add 
+	constraint fk_ctbl_bl
+	foreign key (maHS, maKT, maDT)
+	references BaiLam(maHS, maKT, maDT),
+	constraint fk_ctbl_ctdt
+	foreign key (maDT, maCH)
+	references CT_DeThi(maDT, maCH),
+	constraint fk_ctbl_da
 	foreign key (maCH, maDA)
 	references DapAn(maCH, maDA)
+
+alter table HS_KT
+add
+	constraint fk_hskt_hs
+	foreign key (maHS)
+	references HocSinh(maHS),
+	constraint fk_hskt_kt
+	foreign key (maKT)
+	references KyThi(maKT)
 
 alter table DeThi
 add
